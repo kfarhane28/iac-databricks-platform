@@ -69,8 +69,8 @@ this code use Databricks Standard Deployment for Private Link and is based on th
     terraform init
     ```
 3. **Set Variables**:
-    - Under "environment" directory, update tfvars file for each environment (dev,rec and prd)
-    - Update the DATABRICKS_CLIENT_IDand DATABRICKS_CLIENT_SECRET with you Azure SPN credentials
+    - Under `environment` directory, update tfvars file for each environment (dev,rec and prd)
+    - Update the `DATABRICKS_CLIENT_ID` and `DATABRICKS_CLIENT_SECRET` with you Azure SPN credentials
       ```bash
       export DATABRICKS_CLIENT_ID="xxxxx"
       export DATABRICKS_CLIENT_SECRET="yyyyy"
