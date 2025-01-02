@@ -1,0 +1,41 @@
+[
+    {
+      "name": "CPU_Usage_Alert",
+      "type": "metric",
+      "description": "Alert for high CPU usage",
+      "severity": 2,
+      "condition": {
+        "metric_name": "Percentage CPU",
+        "operator": "GreaterThan",
+        "threshold": 80,
+        "aggregation": "Average"
+      },
+      "action_group_names": ["Email_Action_Group", "EventHub_Action_Group"]
+    },
+    {
+      "name": "High_Failed_Logins",
+      "type": "logsearch",
+      "description": "Alert for high number of failed logins",
+      "severity": 2,
+      "query": "SecurityEvent | where EventID == 4625 | summarize count() by bin(TimeGenerated, 5m)",
+      "frequency": "PT5M",
+      "time_window": "PT5M",
+      "threshold": 10,
+      "operator": "GreaterThan",
+      "action_group_names": ["Email_Action_Group"]
+    },
+    {
+      "name": "Disk_IO_Alert",
+      "type": "metric",
+      "description": "Alert for high disk IO",
+      "severity": 3,
+      "condition": {
+        "metric_name": "Disk Read Bytes/sec",
+        "operator": "GreaterThan",
+        "threshold": 1000,
+        "aggregation": "Total"
+      },
+      "action_group_names": ["EventHub_Action_Group"]
+    }
+  ]
+  
